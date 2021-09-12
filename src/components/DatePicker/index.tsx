@@ -23,7 +23,7 @@ const DatePicker: FC<Props> = ({
   };
   const getDayList = () => {
     const list = Object.keys(Days).map((v) => +v) as TDay[];
-    return list.map((v) => <div key={Days[v]}>{Days[v]}</div>);
+    return list.map((v) => <b key={Days[v]}>{Days[v]}</b>);
   };
   const getDateList = () => {
     const diffDay = new Date(tempYear, tempMonth).getDay();
@@ -52,8 +52,10 @@ const DatePicker: FC<Props> = ({
   };
   return (
     <>
-      <div className={styles.day}>{getDayList()}</div>
-      {getDateList()}
+      <div className={styles.container}>
+        {getDayList()}
+        {getDateList()}
+      </div>
     </>
   );
 };
