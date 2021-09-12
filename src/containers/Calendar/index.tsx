@@ -1,4 +1,5 @@
 import CalendarHeader from '@/components/CalendarHeader';
+import DatePicker from '@/components/DatePicker';
 import React, { useState } from 'react';
 import styles from './styles.module.css';
 import { TViewMode, TBtnClick } from './model';
@@ -46,6 +47,11 @@ const Calendar = () => {
         break;
     }
   };
+  const handleSelectDate = (date: Date): void => {
+    setYear(date.getFullYear());
+    setMonth(date.getMonth() as TMonth);
+    setDate(date.getDate());
+  };
 
   return (
     <div className={styles.container}>
@@ -59,6 +65,20 @@ const Calendar = () => {
         tempYear={tempYear}
         tempMonth={tempMonth}
       />
+      {viewMode === 'date' ? (
+        <DatePicker
+          year={year}
+          month={month}
+          date={date}
+          tempYear={tempYear}
+          tempMonth={tempMonth}
+          handleSelectDate={handleSelectDate}
+        />
+      ) : viewMode === 'month' ? (
+        'month'
+      ) : (
+        'year'
+      )}
     </div>
   );
 };

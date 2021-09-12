@@ -14,3 +14,14 @@ export const Months = {
 };
 
 export type TMonth = keyof typeof Months;
+
+export const Days = {
+  0: 'Su',
+  1: 'Mo',
+  2: 'Tu',
+  3: 'We',
+  4: 'Th',
+  5: 'Fr',
+  6: 'Sa',
+};
+export type TDay = keyof typeof Days;

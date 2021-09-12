@@ -1,0 +1,14 @@
+.today {
+  color: red;
+}
+
+.selected {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+}
+
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
