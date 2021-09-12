@@ -10,3 +10,14 @@ button {
   margin: 4px 2px;
   cursor: pointer;
 }
+
+.selected {
+  background-color: #db3d44;
+  color: white;
+  border-radius: 50%;
+}
+
+.disabled {
+  color: #eeeeee;
+  cursor: not-allowed;
+}

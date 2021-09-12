@@ -3,6 +3,7 @@
   justify-content: space-between;
   align-items: center;
   height: 24px;
+  margin-bottom: 8px;
 }
 .title {
   flex: 1;

@@ -18,14 +18,11 @@ const CalendarHeader: FC<Props> = ({
   viewMode,
   handleViewMode,
   handleBtnClick,
-  year,
-  month,
-  date,
   tempYear,
   tempMonth,
 }) => {
   const getTempYearRange = (): { from: number; to: number } => {
-    const from = ~~(tempYear / 10) * 10,
+    const from = Math.floor(tempYear / 10) * 10,
       to = from + 9;
     return {
       from,

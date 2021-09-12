@@ -1,11 +1,13 @@
+import React, { FC, useState } from 'react';
 import CalendarHeader from '@/components/CalendarHeader';
 import DatePicker from '@/components/DatePicker';
-import React, { useState } from 'react';
+import MonthPicker from '@/components/MonthPicker';
+import YearPicker from '@/components/YearPicker';
+import { TMonth } from '@/libs/dict';
 import styles from './styles.module.css';
 import { TViewMode, TBtnClick } from './model';
-import { TMonth } from '@/libs/dict';
 
-const Calendar = () => {
+const Calendar: FC = () => {
   const [viewMode, setViewMode] = useState<TViewMode>('date');
   const [year, setYear] = useState<number>(new Date().getFullYear());
   const [month, setMonth] = useState<TMonth>(new Date().getMonth() as TMonth);
@@ -47,12 +49,32 @@ const Calendar = () => {
         break;
     }
   };
-  const handleSelectDate = (date: Date): void => {
-    setYear(date.getFullYear());
-    setMonth(date.getMonth() as TMonth);
-    setDate(date.getDate());
+  const handleCalendarClick = (date: Date): void => {
+    const [y, m, d] = [
+      date.getFullYear(),
+      date.getMonth() as TMonth,
+      date.getDate(),
+    ];
+    switch (viewMode) {
+      case 'date':
+        setDate(d);
+        setMonth(m);
+        setYear(y);
+        break;
+      case 'month':
+        setDate(1);
+        setMonth(m);
+        setTempMonth(m);
+        setViewMode('date');
+        break;
+      case 'year':
+        setYear(y);
+        setMonth(0);
+        setTempYear(y);
+        setViewMode('month');
+        break;
+    }
   };
-
   return (
     <div className={styles.container}>
       <CalendarHeader
@@ -72,12 +94,22 @@ const Calendar = () => {
           date={date}
           tempYear={tempYear}
           tempMonth={tempMonth}
-          handleSelectDate={handleSelectDate}
+          handleCalendarClick={handleCalendarClick}
         />
       ) : viewMode === 'month' ? (
-        'month'
+        <MonthPicker
+          year={year}
+          month={month}
+          tempYear={tempYear}
+          tempMonth={tempMonth}
+          handleCalendarClick={handleCalendarClick}
+        />
       ) : (
-        'year'
+        <YearPicker
+          year={year}
+          tempYear={tempYear}
+          handleCalendarClick={handleCalendarClick}
+        />
       )}
     </div>
   );

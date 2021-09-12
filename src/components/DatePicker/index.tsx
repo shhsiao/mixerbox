@@ -7,7 +7,7 @@ interface Props {
   date: number;
   tempYear: number;
   tempMonth: TMonth;
-  handleSelectDate: (date: Date) => void;
+  handleCalendarClick: (date: Date) => void;
 }
 
 const DatePicker: FC<Props> = ({
@@ -16,7 +16,7 @@ const DatePicker: FC<Props> = ({
   date,
   tempYear,
   tempMonth,
-  handleSelectDate,
+  handleCalendarClick,
 }) => {
   const isDisabled = (date: Date) => {
     return date.getFullYear() !== tempYear || date.getMonth() !== tempMonth;
@@ -34,29 +34,28 @@ const DatePicker: FC<Props> = ({
     return dateList.map((v) => (
       <button
         disabled={isDisabled(v)}
-        onClick={() => handleSelectDate(v)}
+        onClick={() => handleCalendarClick(v)}
         key={`${v.getMonth()}-${v.getDate()}`}
         className={`${
           v.toDateString() === new Date().toDateString() ? styles.today : ''
         }
         ${
+          date &&
           v.toDateString() === new Date(year, month, date).toDateString()
-            ? styles.selected
+            ? 'selected'
             : ''
         }
-        ${isDisabled(v) ? styles.disabled : ''}`}
+        ${isDisabled(v) ? 'disabled' : ''}`}
       >
         {v.getDate()}
       </button>
     ));
   };
   return (
-    <>
-      <div className={styles.container}>
-        {getDayList()}
-        {getDateList()}
-      </div>
-    </>
+    <div className={styles.container}>
+      {getDayList()}
+      {getDateList()}
+    </div>
   );
 };
 
