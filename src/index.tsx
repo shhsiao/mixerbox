@@ -1,7 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Calendar from '@/containers/Calendar';
 
-const App = () => <h1>React App</h1>;
+const App = () => (
+  <>
+    <Calendar />
+  </>
+);
 
 ReactDOM.render(
   <React.StrictMode>
