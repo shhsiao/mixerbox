@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  height: 30px;
+  border: 1px solid black;
+  align-items: center;
+  width: 150px;
+  margin-bottom: 12px;
+}
+img {
+  cursor: pointer;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+.year {
+  width: 30px;
+}
+input {
+  width: 16px;
+  border: 0;
+}
