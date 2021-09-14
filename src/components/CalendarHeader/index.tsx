@@ -40,7 +40,7 @@ const CalendarHeader: FC<Props> = ({
       </button>
       <div className={styles.title} onClick={handleViewMode}>
         {viewMode === 'date'
-          ? `${Months[tempMonth]}  ${tempYear}`
+          ? `${Months[tempMonth] || 'MM'}  ${tempYear}`
           : viewMode === 'month'
           ? tempYear
           : `${getTempYearRange().from} - ${getTempYearRange().to}`}
