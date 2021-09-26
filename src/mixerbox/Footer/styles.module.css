@@ -1,0 +1,11 @@
+.footer{
+    display: flex;
+    color:rgb(165, 165, 165);
+}
+.last{
+    margin-left:auto !important;
+}
+
+.item{
+    margin-left:12px;
+}

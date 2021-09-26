@@ -21,3 +21,14 @@ button {
   color: #eeeeee;
   cursor: not-allowed;
 }
+
+@media (min-width: 900px){
+  .grid{
+  grid-template-columns: repeat(4, 1fr) !important;
+  }
+}
+@media (min-width: 70px){
+  .grid{
+  grid-template-columns: repeat(2, 1fr);
+  }
+}
