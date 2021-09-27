@@ -1,3 +1,6 @@
+body {
+  font-family: arial, 'Microsoft JhengHei', '微軟正黑體', sans-serif !important;
+}
 button {
   background-color: white;
   border: none;
@@ -22,13 +25,19 @@ button {
   cursor: not-allowed;
 }
 
-@media (min-width: 900px){
-  .grid{
-  grid-template-columns: repeat(4, 1fr) !important;
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr) !important;
   }
 }
-@media (min-width: 70px){
-  .grid{
-  grid-template-columns: repeat(2, 1fr);
+@media (min-width: 70px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
   }
+}
+
+.overflow {
+  max-height: calc(100vh - 160px);
+  min-height: calc(100vh - 160px);
+  overflow-x: scroll;
 }
