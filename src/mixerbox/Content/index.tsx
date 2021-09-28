@@ -23,7 +23,7 @@ const Content = ({ selected }) => {
         {data.map((v, i) => {
           return (
             <div key={v.content + i} className={styles.border}>
-              <img src={v.urlToImage} width="100%" />
+              <img src={v.urlToImage} height="200" width="100%" />
               <div className={styles.title}>{v.title}</div>
               <div className={styles.info}>
                 <div className={styles.author}>{v.author}</div>

@@ -25,19 +25,28 @@ button {
   cursor: not-allowed;
 }
 
-@media (min-width: 900px) {
+.grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 700px) {
   .grid {
-    grid-template-columns: repeat(4, 1fr) !important;
+    grid-template-columns: repeat(4, 1fr);
   }
 }
-@media (min-width: 70px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
+@media (max-width: 600px) {
+  .hidden {
+    display: none;
   }
 }
+
 
 .overflow {
   max-height: calc(100vh - 192px);
   min-height: calc(100vh - 192px);
   overflow-x: scroll;
+}
+
+.hidden {
+  margin-left: 12px;
 }
