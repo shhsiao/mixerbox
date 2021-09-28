@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './styles.module.css';
-
+import { getDiffTime } from '@/libs/utils';
 const Content = ({ selected }) => {
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -22,10 +22,15 @@ const Content = ({ selected }) => {
       <div className={`${styles.grid} grid`}>
         {data.map((v, i) => {
           return (
-            <div key={v.content + i}>
-              <img src={v.urlToImage} height="150" />
+            <div key={v.content + i} className={styles.border}>
+              <img src={v.urlToImage} width="100%" />
               <div className={styles.title}>{v.title}</div>
-              <div className={styles.author}>{v.author}</div>
+              <div className={styles.info}>
+                <div className={styles.author}>{v.author}</div>
+                <div className={styles.time}>
+                  ・{getDiffTime(v.publishedAt)} 分鐘
+                </div>
+              </div>
             </div>
           );
         })}
